@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'cj.rogers'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations.all {
+    exclude group: "commons-logging", module: "commons-logging"
+}
+
+dependencies {
+    compile 'org.slf4j:jcl-over-slf4j:1.7.12'
+    compile 'ch.qos.logback:logback-classic:1.1.3'
+
+}
