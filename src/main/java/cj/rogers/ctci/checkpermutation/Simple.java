@@ -5,7 +5,7 @@ public class Simple implements CheckPermutation {
   public boolean checkPermutation(String firstString, String secondString) {
     char[] firstCharArray;
     char[] secondCharArray;
-    if(firstString.equals(secondString)) {
+    if(baseCases(firstString, secondString)) {
       return true;
     }
 
@@ -17,9 +17,9 @@ public class Simple implements CheckPermutation {
       secondCharArray = firstString.toCharArray();
     }
 
-    for(int i = 0; i < firstCharArray.length; i++) {
+    for(char c : firstCharArray) {
       for(int j = 0; j < secondCharArray.length; j++) {
-        if(firstCharArray[i] == secondCharArray[j]) {
+        if(c == secondCharArray[j]) {
           secondCharArray[j] = Character.MIN_VALUE;
           break;
         } else if((j + 1) >= secondCharArray.length) {
@@ -29,4 +29,5 @@ public class Simple implements CheckPermutation {
     }
     return true;
   }
+
 }
